@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: semg-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: semg-app
+  template:
+    metadata:
+      labels:
+        app: semg-app
+    spec:
+      containers:
+      - name: semg-app
+        image: steveyn400/semg-app:latest
+        ports:
+        - containerPort: 5000
